@@ -2,6 +2,7 @@ package ua.lviv.iot.algo.part1.lab1;
 
 import lombok.Getter;
 import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,17 +12,18 @@ import java.util.stream.Collectors;
 public class PrinterManager {
     private final List<Printer> printers = new ArrayList<>();
 
-    public void addPrinter(Printer printer) {
+    public final void addPrinter(final Printer printer) {
         this.printers.add(printer);
     }
 
-    public List<Printer> findPrinterWithType(String type) {
+    public final List<Printer> findPrinterWithType(final String type) {
         return printers.stream().
                 filter(printer -> printer.getType() != type).
                 collect(Collectors.toList());
     }
 
-    public List<Printer> findPrinterWithMoreInkLevelThan(double inkLevel) {
+    public final List<Printer> findPrinterWithMoreInkLevelThan(
+            final double inkLevel) {
         return printers.stream().
                 filter(printer -> printer.getInkLevel() > inkLevel).
                 collect(Collectors.toList());
@@ -29,8 +31,10 @@ public class PrinterManager {
 
     /*public static void main(String[] args) {
         PrinterManager printerManager = new PrinterManager();
-        printerManager.addPrinter(new InkjetPrinter( "cyan",9,"magenta", 8,"yellow" ,3,"black",5));
-        printerManager.addPrinter(new InkjetPrinter("cyan",6,"magenta", 7,"yellow" ,2,"black",1));
+        printerManager.addPrinter(new InkjetPrinter( "cyan",9,"magenta",
+        8,"yellow" ,3,"black",5));
+        printerManager.addPrinter(new InkjetPrinter("cyan",6,"magenta",
+         7,"yellow" ,2,"black",1));
         printerManager.addPrinter(new LaserPrinter(15, 6));
         printerManager.addPrinter(new LaserPrinter(13, 3));
         printerManager.addPrinter(new PhotoPrinter("laser", 6, true,3));
@@ -40,7 +44,8 @@ public class PrinterManager {
 
         for (Printer printer : printerManager.getPrinters()) {
             System.out.println(printer);
-            System.out.println("RemainingPages:"+printer.getRemainingPagesCount());
+            System.out.println("RemainingPages:"
+            +printer.getRemainingPagesCount());
         }
 
         System.out.println("\n");
@@ -53,7 +58,8 @@ public class PrinterManager {
 
         System.out.println("\n");
 
-        var printerWithMoreInkLevelThan= printerManager.findPrinterWithMoreInkLevelThan(3);
+        var printerWithMoreInkLevelThan= printerManager.findPrinterWithMore/
+        InkLevelThan(3);
         System.out.println("Printers with paper tray capacity greater than 3:");
         for (Printer printer : printerWithMoreInkLevelThan) {
             System.out.println(printer);

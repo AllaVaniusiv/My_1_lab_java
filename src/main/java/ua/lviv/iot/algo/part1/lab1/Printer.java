@@ -20,13 +20,13 @@ public abstract class Printer {
     private int paperTrayCapacity;
     private int paperCount;
     private double inkLevel;
-    public static Printer defaultPrinter;
+    private static Printer defaultPrinter;
 
     public static Printer getInstance() {
         return defaultPrinter;
     }
 
-    public void print(int pages) {
+    public final void print(final int pages) {
         if (pages <= paperCount) {
             paperCount -= pages;
             System.out.println("Printing " + pages + " pages...");
@@ -35,7 +35,7 @@ public abstract class Printer {
         }
     }
 
-    public int loadPaper(int count) {
+    public final int loadPaper(final int count) {
         paperCount += count;
         if (paperCount > paperTrayCapacity) {
             paperCount = paperTrayCapacity;

@@ -19,20 +19,20 @@ public class PhotoPrinter extends Printer {
     private double inkLevel;
     //   private static PhotoPrinter defaultPhotoPrinter = new PhotoPrinter();
 
-    public int printPhoto(String photoFileName) {
-        System.out.println("Printing photo " + photoFileName + " on " + type +
-                " with resolution " + resolution + "dpi" +
-                (isColor ? " in color" : " in black and white") + "...");
+    public final int printPhoto(final String photoFileName) {
+        System.out.println("Printing photo " + photoFileName + " on " + type
+                + " with resolution " + resolution + "dpi"
+                + (isColor ? " in color" : " in black and white") + "...");
         return 0;
     }
 
-    public int calibrate() {
+    public final int calibrate() {
         System.out.println("Calibrating " + type + "...");
         return 0;
     }
 
     @Override
-    public int getRemainingPagesCount() {
+    public final int getRemainingPagesCount() {
         return 0;
     }
 }

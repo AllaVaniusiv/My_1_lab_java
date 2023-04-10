@@ -20,21 +20,21 @@ public class LaserPrinterTest {
         assertEquals(0, laserPrinter.getRemainingPagesCount());
     }
 
-        @Test
-        public void testPrint_withEnoughToner() {
-            LaserPrinter printer = new LaserPrinter(10, 0);
-            printer.print(5);
-            assertEquals(5, printer.getTonerPagesCount());
-            assertEquals(5, printer.getPrintedPagesCount());
-        }
+    @Test
+    public void testPrint_withEnoughToner() {
+        LaserPrinter printer = new LaserPrinter(10, 0);
+        printer.print(5);
+        assertEquals(5, printer.getTonerPagesCount());
+        assertEquals(5, printer.getPrintedPagesCount());
+    }
 
-        @Test
-        public void testPrint_withNotEnoughToner() {
-            LaserPrinter printer = new LaserPrinter(3, 0);
-            printer.print(5);
-            assertEquals(3, printer.getTonerPagesCount());
-            assertEquals(0, printer.getPrintedPagesCount());
-        }
+    @Test
+    public void testPrint_withNotEnoughToner() {
+        LaserPrinter printer = new LaserPrinter(3, 0);
+        printer.print(5);
+        assertEquals(3, printer.getTonerPagesCount());
+        assertEquals(0, printer.getPrintedPagesCount());
+    }
     @Test
     public void testGetInstance() {
         LaserPrinter laserPrinter1 = new LaserPrinter(100, 0);

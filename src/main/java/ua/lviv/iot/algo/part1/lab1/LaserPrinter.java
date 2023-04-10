@@ -17,18 +17,18 @@ public class LaserPrinter extends Printer {
     private int printedPagesCount;
 
     @Override
-    public int getRemainingPagesCount() {
+    public final int getRemainingPagesCount() {
         return tonerPagesCount - printedPagesCount;
     }
 
-    @Override
-    public void print(int pagesCount) {
+    public final void print(final int pagesCount) {
         if (tonerPagesCount >= pagesCount) {
             tonerPagesCount -= pagesCount;
             printedPagesCount += pagesCount;
             System.out.println("Printing" + pagesCount + "pages...");
         } else {
-            System.out.println("Not enough toner to print" + pagesCount + "pages...");
+            System.out.println("Not enough toner to print" + pagesCount
+                    + "pages...");
         }
     }
 }

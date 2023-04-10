@@ -21,33 +21,32 @@ class TreeDPrinterTest {
 
   @Test
     void testSetPrintingSpeed() {
-        printer.setPrintingSpeed(10);
+        printer.setPrintingSpeed1(10);
         assertEquals(10, printer.getPrintingSpeed());
     }
-    @Test
-    public void testSetPrintingSpeed1() {
-        TreeDPrinter printer = new TreeDPrinter();
+@Test
+public void testSetPrintingSpeed1() {
+    TreeDPrinter printer = new TreeDPrinter();
 
-        // Тест 1: перевіряємо, що швидкість друку встановлена коректно
-        printer.setPrintingSpeed(10);
-        assertEquals(10, printer.getPrintingSpeed());
+    // Тест 1: перевіряємо, що швидкість друку встановлена коректно
+    printer.setPrintingSpeed1(10);
+    assertEquals(10, printer.getPrintingSpeed());
 
-        // Тест 2: перевіряємо, що швидкість друку можна встановити в нуль
-        printer.setPrintingSpeed(0);
-        assertEquals(0, printer.getPrintingSpeed());
-        // Тест 3: перевіряємо, що швидкість друку можна встановити в від'ємне число
-        printer.setPrintingSpeed(-5);
-        assertEquals(-5, printer.getPrintingSpeed());
+    // Тест 2: перевіряємо, що швидкість друку можна встановити в нуль
+    printer.setPrintingSpeed1(0);
+    assertEquals(0, printer.getPrintingSpeed());
+    // Тест 3: перевіряємо, що швидкість друку можна встановити в від'ємне число
+    printer.setPrintingSpeed1(-5);
+    assertEquals(-5, printer.getPrintingSpeed());
 
-        // Тест 4: перевіряємо, що швидкість друку можна змінити після встановлення
-        printer.setPrintingSpeed(20);
-        printer.setPrintingSpeed(30);
-        assertEquals(30, printer.getPrintingSpeed());
+    // Тест 4: перевіряємо, що швидкість друку можна змінити після встановлення
+    printer.setPrintingSpeed1(30);
+    assertEquals(30, printer.getPrintingSpeed());
 
-        // Тест 5: перевіряємо, що метод не повертає значення
-        int result = printer.setPrintingSpeed(15);
-        assertEquals(15, result);
-    }
+    // Тест 5: перевіряємо, що метод не повертає значення
+    int result = printer.setPrintingSpeed1(15);
+    assertEquals(15, result);
+}
 
 
     @Test

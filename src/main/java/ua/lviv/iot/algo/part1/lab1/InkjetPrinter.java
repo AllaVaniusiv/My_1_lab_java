@@ -23,7 +23,7 @@ public class InkjetPrinter extends Printer {
     private double blackInkLevel;
     private static final int REQUIRED_COLOUR_PER_PAGE = 5;
 
-    public void printImage(String[] colors, int[] amounts) {
+    public final void printImage(final String[] colors, final int[] amounts) {
         boolean hasEnoughInk = true;
         for (int i = 0; i < colors.length; i++) {
             if (colors[i].equalsIgnoreCase("cyan")) {
@@ -67,12 +67,17 @@ public class InkjetPrinter extends Printer {
     }
 
     @Override
-    public int getRemainingPagesCount() {
-        int remainingCyanPages = (int) Math.floor(cyanInkLevel / REQUIRED_COLOUR_PER_PAGE);
-        int remainingMagentaPages = (int) Math.floor(magentaInkLevel / REQUIRED_COLOUR_PER_PAGE);
-        int remainingYellowPages = (int) Math.floor(yellowInkLevel / REQUIRED_COLOUR_PER_PAGE);
-        int remainingBlackPages = (int) Math.floor(blackInkLevel / REQUIRED_COLOUR_PER_PAGE);
-        return Math.min(Math.min(remainingCyanPages, remainingMagentaPages), Math.min(remainingYellowPages, remainingBlackPages));
+    public final int getRemainingPagesCount() {
+        int remainingCyanPages = (int) Math.floor(cyanInkLevel
+                / REQUIRED_COLOUR_PER_PAGE);
+        int remainingMagentaPages = (int) Math.floor(magentaInkLevel
+                / REQUIRED_COLOUR_PER_PAGE);
+        int remainingYellowPages = (int) Math.floor(yellowInkLevel
+                / REQUIRED_COLOUR_PER_PAGE);
+        int remainingBlackPages = (int) Math.floor(blackInkLevel
+                / REQUIRED_COLOUR_PER_PAGE);
+        return Math.min(Math.min(remainingCyanPages, remainingMagentaPages),
+                Math.min(remainingYellowPages, remainingBlackPages));
     }
 }
 

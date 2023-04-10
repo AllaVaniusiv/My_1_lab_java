@@ -40,12 +40,6 @@ class PrinterManagerTest {
         assertEquals(8, treeDPrinters.size());
     }
 
-   /* @Test
-    void testFindPrinterWithMoreInkLevelThanNotFound() {
-        var printersWithMoreInkLevel = printerManager.findPrinterWithMoreInkLevelThan(20);
-        assertNotNull(printersWithMoreInkLevel);
-        assertTrue(printersWithMoreInkLevel.isEmpty());
-    }*/
    @Test
    void testFindPrinterWithMoreInkLevelThan() {
        PrinterManager printerManager = new PrinterManager();

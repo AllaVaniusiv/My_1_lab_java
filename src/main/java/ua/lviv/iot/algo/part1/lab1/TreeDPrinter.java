@@ -19,19 +19,19 @@ public class TreeDPrinter extends Printer {
     //  private static PhotoPrinter defaultPhotoPrinter = new PhotoPrinter();
 
     // Метод для запуску друку
-    public int print() {
+    public final int print() {
         System.out.println("Printing...");
-        return 0 ;
+        return 0;
     }
 
     // Метод для зміни швидкості друку
-    public int setPrintingSpeed(int printingSpeed) {
+    public final int setPrintingSpeed1(final int printingSpeed) {
         this.printingSpeed = printingSpeed;
         return printingSpeed;
     }
 
     @Override
-    public int getRemainingPagesCount() {
+    public final int getRemainingPagesCount() {
         return 0;
     }
 }
