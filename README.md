@@ -1,2 +1,2 @@
-# My_2_lab_java
-my2_lab_java
+# My_3_lab_java
+my3_lab_java
