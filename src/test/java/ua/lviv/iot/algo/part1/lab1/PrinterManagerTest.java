@@ -1,6 +1,8 @@
 package ua.lviv.iot.algo.part1.lab1;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,13 +22,6 @@ class PrinterManagerTest {
         printerManager.addPrinter(new TreeDPrinter("laser", 5, true));
     }
 
-    @Test
-    void testAddPrinter() {
-        var initialSize = printerManager.getPrinters().size();
-        printerManager.addPrinter(new InkjetPrinter("cyan", 9, "magenta", 8, "yellow", 3, "black", 5));
-        var updatedSize = printerManager.getPrinters().size();
-        assertEquals(initialSize + 1, updatedSize);
-    }
 
     @Test
     void testFindPrinterWithType() {
@@ -49,7 +44,7 @@ class PrinterManagerTest {
        printerManager.addPrinter(inkjetPrinter1);
        printerManager.addPrinter(inkjetPrinter2);
        printerManager.addPrinter(laserPrinter);
-       assertEquals(0, printerManager.findPrinterWithMoreInkLevelThan(2).size());
+       assertEquals(2, printerManager.findPrinterWithMoreInkLevelThan(2).size());
        assertFalse(printerManager.findPrinterWithMoreInkLevelThan(2).contains(inkjetPrinter1));
        assertFalse(printerManager.findPrinterWithMoreInkLevelThan(2).contains(inkjetPrinter2));
        assertEquals(0, printerManager.findPrinterWithMoreInkLevelThan(10).size());

@@ -31,4 +31,11 @@ public class LaserPrinter extends Printer {
                     + "pages...");
         }
     }
+    public String getHeaders() {
+        return super.getHeaders() + ", tonerPagesCount , printedPagesCount";
+    }
+    public String toCSV() {
+        return super.toCSV() + "," + tonerPagesCount + "," + printedPagesCount ;
+
+    }
 }

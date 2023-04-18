@@ -35,6 +35,15 @@ public class PhotoPrinter extends Printer {
     public final int getRemainingPagesCount() {
         return 0;
     }
+
+    public String getHeaders() {
+        return super.getHeaders() + ", type , resolution , isColor , inkLevel";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + type+ "," + resolution + ","  + isColor+ "," + inkLevel ;
+
+    }
 }
 
 

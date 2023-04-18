@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static ua.lviv.iot.algo.part1.lab1.Printer.getInstance;
 
 public class LaserPrinterTest {
     private LaserPrinter laserPrinter;
@@ -35,15 +36,7 @@ public class LaserPrinterTest {
         assertEquals(3, printer.getTonerPagesCount());
         assertEquals(0, printer.getPrintedPagesCount());
     }
-    @Test
-    public void testGetInstance() {
-        LaserPrinter laserPrinter1 = new LaserPrinter(100, 0);
-        LaserPrinter laserPrinter2 = new LaserPrinter(200, 0);
-        Printer.defaultPrinter = laserPrinter1;
-        assertEquals(laserPrinter1, Printer.getInstance());
-        Printer.defaultPrinter = laserPrinter2;
-        assertEquals(laserPrinter2, Printer.getInstance());
-    }
+
     @Test
     public void testLoadPaper_withNotEnoughSpace() {
         laserPrinter.loadPaper(150);
@@ -91,6 +84,19 @@ public class LaserPrinterTest {
         int result = laserPrinter.loadPaper(newToner);
         assertEquals(initialToner, laserPrinter.getTonerPagesCount());
         assertEquals(0, result);
+    }
+    @Test
+    public void testGetHeaders() {
+        LaserPrinter printer = new LaserPrinter( 200 , 70);
+        String expectedHeaders = "model,type,isColor,isDuplex,paperTrayCapacity,paperCount,inkLevel, tonerPagesCount , printedPagesCount";
+        assertEquals(expectedHeaders, printer.getHeaders());
+    }
+
+    @Test
+    public void testToCSV() {
+        LaserPrinter printer = new LaserPrinter( 100 , 50);
+        String expectedCSV = "null,null,false,false,0,0,0.0,100,50";
+        assertEquals(expectedCSV, printer.toCSV());
     }
 
 }

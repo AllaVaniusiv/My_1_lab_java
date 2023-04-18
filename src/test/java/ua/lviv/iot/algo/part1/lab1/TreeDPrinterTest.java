@@ -11,7 +11,6 @@ class TreeDPrinterTest {
     @BeforeEach
     void setUp() {
         printer = new TreeDPrinter("laser", 250,true);
-        Printer.defaultPrinter = printer;
     }
 
    @Test
@@ -67,6 +66,19 @@ public void testSetPrintingSpeed1() {
     @Test
     void testGetPrintingSpeedInPagesPerMinute() {
         assertEquals(250, printer.getPrintingSpeed());
+    }
+    @Test
+    public void testGetHeaders() {
+        TreeDPrinter printer = new TreeDPrinter( "inkjet" ,150,true);
+        String expectedHeaders = "model,type,isColor,isDuplex,paperTrayCapacity,paperCount,inkLevel,type,printingSpeed,isColorPrinter";
+        assertEquals(expectedHeaders, printer.getHeaders());
+    }
+
+    @Test
+    public void testToCSV() {
+        TreeDPrinter printer = new TreeDPrinter( "inkjet" , 200 , true);
+        String expectedCSV = "null,null,false,false,0,0,0.0,inkjet,200,true";
+        assertEquals(expectedCSV, printer.toCSV());
     }
 
 }

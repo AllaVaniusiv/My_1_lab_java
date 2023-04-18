@@ -12,7 +12,6 @@ class PrinterTest {
     @BeforeEach
     void setUp() {
         printer = new LaserPrinter(250, 50);
-        Printer.defaultPrinter = printer;
     }
 
     @Test
@@ -128,6 +127,34 @@ class PrinterTest {
         printer.loadPaper(50);
         printer.print(-5);
         assertEquals(210, printer.getRemainingPagesCount());
+    }
+   /* @Test
+    public void testGetHeaders() {
+        String expected = "model,type,isColor,isDuplex,paperTrayCapacity,paperCount,inkLevel, tonerPagesCount , printedPagesCount";
+        String actual = printer.getHeaders();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testToCSV() {
+        String expected = "null,null,false,false,0,0,0.0,250,50";
+        String actual = printer.toCSV();
+        assertEquals(expected, actual);
+    }*/
+   @Test
+   public void testGetHeaders() {
+       Printer printer = new LaserPrinter(100, 50);
+       String expectedHeaders = "model,type,isColor,isDuplex,paperTrayCapacity,paperCount,inkLevel, tonerPagesCount , printedPagesCount";
+       String actualHeaders = printer.getHeaders();
+       assertEquals(expectedHeaders, actualHeaders);
+   }
+
+    @Test
+    public void testToCSV() {
+        Printer printer = new LaserPrinter(150, 55);
+        String expectedCSV = "null,null,false,false,0,0,0.0,150,55";
+        String actualCSV = printer.toCSV();
+        assertEquals(expectedCSV, actualCSV);
     }
 
 }
