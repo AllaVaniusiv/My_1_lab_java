@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.modules;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -31,11 +31,13 @@ public class LaserPrinter extends Printer {
                     + "pages...");
         }
     }
-    public String getHeaders() {
+
+    public final String getHeaders() {
         return super.getHeaders() + ", tonerPagesCount , printedPagesCount";
     }
-    public String toCSV() {
-        return super.toCSV() + "," + tonerPagesCount + "," + printedPagesCount ;
+
+    public final String toCSV() {
+        return super.toCSV() + "," + tonerPagesCount + "," + printedPagesCount;
 
     }
 }

@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.modules;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -44,11 +44,14 @@ public abstract class Printer {
     }
 
     public abstract int getRemainingPagesCount();
+
     public String getHeaders() {
-        return "model,type,isColor,isDuplex,paperTrayCapacity,paperCount,inkLevel";
+        return "model,type,isColor,isDuplex,paperTrayCapacity,"
+                + "paperCount,inkLevel";
     }
 
     public String toCSV() {
-        return model + "," + type + "," + isColor + "," + isDuplex + "," + paperTrayCapacity + "," + paperCount + "," + inkLevel;
+        return model + "," + type + "," + isColor + "," + isDuplex + ","
+                + paperTrayCapacity + "," + paperCount + "," + inkLevel;
     }
 }
