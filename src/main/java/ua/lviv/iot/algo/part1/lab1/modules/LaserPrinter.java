@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.modules;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -30,5 +30,14 @@ public class LaserPrinter extends Printer {
             System.out.println("Not enough toner to print" + pagesCount
                     + "pages...");
         }
+    }
+
+    public final String getHeaders() {
+        return super.getHeaders() + ", tonerPagesCount , printedPagesCount";
+    }
+
+    public final String toCSV() {
+        return super.toCSV() + "," + tonerPagesCount + "," + printedPagesCount;
+
     }
 }

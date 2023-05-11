@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.modules;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -26,7 +26,7 @@ public abstract class Printer {
         return defaultPrinter;
     }
 
-    public final void print(final int pages) {
+    public void print(final int pages) {
         if (pages <= paperCount) {
             paperCount -= pages;
             System.out.println("Printing " + pages + " pages...");
@@ -45,4 +45,13 @@ public abstract class Printer {
 
     public abstract int getRemainingPagesCount();
 
+    public String getHeaders() {
+        return "model,type,isColor,isDuplex,paperTrayCapacity,"
+                + "paperCount,inkLevel";
+    }
+
+    public String toCSV() {
+        return model + "," + type + "," + isColor + "," + isDuplex + ","
+                + paperTrayCapacity + "," + paperCount + "," + inkLevel;
+    }
 }

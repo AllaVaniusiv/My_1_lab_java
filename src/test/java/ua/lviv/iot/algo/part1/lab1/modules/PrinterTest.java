@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.modules;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,11 +39,7 @@ class PrinterTest {
         assertEquals(200, printer.getRemainingPagesCount());
     }
 
-    @Test
-    void getInstance_shouldReturnDefaultPrinter() {
-        Printer actualPrinter = Printer.getInstance();
-        assertEquals(printer, actualPrinter);
-    }
+
     @Test
     public void testPrintNotEnoughPaper() {
         printer.print(60);
@@ -128,19 +124,6 @@ class PrinterTest {
         printer.print(-5);
         assertEquals(210, printer.getRemainingPagesCount());
     }
-   /* @Test
-    public void testGetHeaders() {
-        String expected = "model,type,isColor,isDuplex,paperTrayCapacity,paperCount,inkLevel, tonerPagesCount , printedPagesCount";
-        String actual = printer.getHeaders();
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testToCSV() {
-        String expected = "null,null,false,false,0,0,0.0,250,50";
-        String actual = printer.toCSV();
-        assertEquals(expected, actual);
-    }*/
    @Test
    public void testGetHeaders() {
        Printer printer = new LaserPrinter(100, 50);

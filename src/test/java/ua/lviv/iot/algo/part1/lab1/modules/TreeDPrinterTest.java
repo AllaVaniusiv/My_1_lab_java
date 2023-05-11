@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.modules;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,7 +40,7 @@ public void testSetPrintingSpeed1() {
 
     // Тест 4: перевіряємо, що швидкість друку можна змінити після встановлення
     printer.setPrintingSpeed1(30);
-    assertEquals(30, printer.getPrintingSpeed());
+    assertEquals(30, printer.getPrintingSpeed()) ;
 
     // Тест 5: перевіряємо, що метод не повертає значення
     int result = printer.setPrintingSpeed1(15);

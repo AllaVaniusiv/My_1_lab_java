@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.modules;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -13,18 +13,16 @@ import lombok.ToString;
 @Setter
 @ToString(callSuper = true)
 public class TreeDPrinter extends Printer {
-    private String type; // тип принтера
-    private int printingSpeed; // Швидкість друку
-    private boolean isColorPrinter; // Чи є принтер кольоровим
-    //  private static PhotoPrinter defaultPhotoPrinter = new PhotoPrinter();
+    private String type;
+    private int printingSpeed;
+    private boolean isColorPrinter;
 
-    // Метод для запуску друку
     public final int print() {
         System.out.println("Printing...");
         return 0;
     }
 
-    // Метод для зміни швидкості друку
+
     public final int setPrintingSpeed1(final int printingSpeed) {
         this.printingSpeed = printingSpeed;
         return printingSpeed;
@@ -34,5 +32,14 @@ public class TreeDPrinter extends Printer {
     public final int getRemainingPagesCount() {
         return 0;
     }
-}
 
+    public final String getHeaders() {
+        return super.getHeaders() + ",type,printingSpeed,isColorPrinter";
+    }
+
+    public final String toCSV() {
+        return super.toCSV() + "," + type + "," + printingSpeed
+                + "," + isColorPrinter;
+
+    }
+}

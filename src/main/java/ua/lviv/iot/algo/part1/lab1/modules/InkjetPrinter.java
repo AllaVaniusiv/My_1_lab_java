@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.modules;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -79,6 +79,18 @@ public class InkjetPrinter extends Printer {
         return Math.min(Math.min(remainingCyanPages, remainingMagentaPages),
                 Math.min(remainingYellowPages, remainingBlackPages));
     }
+
+    public final String getHeaders() {
+        return super.getHeaders() + ", cyanInkType,cyanInkLevel,"
+                + "magentaInkType,magentaInkLevel,yellowInkType ,"
+                + "yellowInkLevel,blackInkType,blackInkLevel";
+    }
+
+    public final String toCSV() {
+        return super.toCSV() + "," + cyanInkType + "," + cyanInkLevel
+                + "," + magentaInkType + "," + magentaInkLevel + ","
+                + yellowInkType + "," + yellowInkLevel + "," + blackInkType
+                + "," + blackInkLevel;
+
+    }
 }
-
-

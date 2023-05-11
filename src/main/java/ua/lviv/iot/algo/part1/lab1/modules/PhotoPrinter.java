@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.modules;
 
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
@@ -17,7 +17,6 @@ public class PhotoPrinter extends Printer {
     private int resolution;
     private boolean isColor;
     private double inkLevel;
-    //   private static PhotoPrinter defaultPhotoPrinter = new PhotoPrinter();
 
     public final int printPhoto(final String photoFileName) {
         System.out.println("Printing photo " + photoFileName + " on " + type
@@ -35,7 +34,14 @@ public class PhotoPrinter extends Printer {
     public final int getRemainingPagesCount() {
         return 0;
     }
+
+    public final String getHeaders() {
+        return super.getHeaders() + ", type , resolution , isColor , inkLevel";
+    }
+
+    public final String toCSV() {
+        return super.toCSV() + "," + type + "," + resolution + "," + isColor
+                + "," + inkLevel;
+
+    }
 }
-
-
-
